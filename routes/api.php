@@ -32,7 +32,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 	Route::resource('usuarios', 'UserController');
 
 	//Cliente routes
-	Route::resource('clientes', 'ClienteController');
+	//Route::resource('clientes', 'ClienteController');
 	Route::get('cliente/reservas/{id_cliente}', 'ClienteController@getReservas');
 	Route::get('cliente/reservas/abiertas/{id_cliente}', 'ClienteController@getReservasAbiertas');
 	//Reservas
@@ -43,6 +43,8 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 });
 //Nueva ruta para el login
 Route::post('/login', 'AuthenticateController@authenticate');
+
+Route::Apiresource('clientes', 'ClienteController');
 
 /*
 Route::ApiResource('empresas', 'EmpresaController');
